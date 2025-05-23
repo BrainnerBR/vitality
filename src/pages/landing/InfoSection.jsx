@@ -1,5 +1,5 @@
 import React from 'react';
-import ScrollReveal from '../../animate/ScrollReveal';
+import ScrollReveal from '../../assets/animate/ScrollReveal';
 
 const InfoSection = () => {
   return (

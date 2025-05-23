@@ -2,8 +2,8 @@ import Navbar from './Navbar';
 import HeroImg from '../../assets/landing.jpg';
 import InfoSection from './InfoSection';
 import Services from './Services';
-import AnimateWord from '../../animate/AnimateWord';
-import ScrollReveal from '../../animate/ScrollReveal';
+import AnimateWord from '../../assets/animate/AnimateWord';
+import ScrollReveal from '../../assets/animate/ScrollReveal';
 import Planes from './Planes';
 import Footer from './Footer';
 

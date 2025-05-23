@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaAppleAlt, FaDumbbell, FaRunning } from 'react-icons/fa';
-import ScrollReveal from '../../animate/ScrollReveal';
+import ScrollReveal from '../../assets/animate/ScrollReveal';
 
 const Services = () => {
 return (
