@@ -18,7 +18,7 @@ return (
 
         {/* Servicio 2 */}
         <div className="flex flex-col items-center">
-          <FaAppleAlt className="text-green-500 text-6xl mb-4" />
+          <FaAppleAlt className="text-red-500 text-6xl mb-4" />
           <h3 className="text-2xl font-semibold mb-2">Dietas personalizadas</h3>
           <p className="text-gray-600">
             Recibe recomendaciones y menús adaptados a tus objetivos, gustos y estilo de vida para una alimentación balanceada.
@@ -27,7 +27,7 @@ return (
 
         {/* Servicio 3 */}
         <div className="flex flex-col items-center">
-          <FaDumbbell className="text-blue-500 text-6xl mb-4" />
+          <FaDumbbell className="text-red-500 text-6xl mb-4" />
           <h3 className="text-2xl font-semibold mb-2">Gana masa muscular</h3>
           <p className="text-gray-600">
             Programas de entrenamiento y nutrición para aumentar fuerza, volumen muscular y mejorar tu rendimiento físico.

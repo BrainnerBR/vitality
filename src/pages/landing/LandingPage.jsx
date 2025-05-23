@@ -5,6 +5,7 @@ import Services from './Services';
 import AnimateWord from '../../animate/AnimateWord';
 import ScrollReveal from '../../animate/ScrollReveal';
 import Planes from './Planes';
+import Footer from './Footer';
 
 const LandingPage = () => {
   return (
@@ -53,6 +54,7 @@ const LandingPage = () => {
       <Services />
       <InfoSection />
       <Planes/>
+      <Footer/>
     </div>
   );
 };
