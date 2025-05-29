@@ -1,0 +1,58 @@
+{
+  "Usuarios": [
+    {
+      "id": 1,
+      "nombre": "Brainer",
+      "apellido": "Blanco",
+      "email": "brainnerblanco@gmail.com",
+      "contraseña_hash": "example_hash",
+      "fecha_nacimiento": "2002-10-22",
+      "sexo": "ND",
+      "peso_kg": null,
+      "altura_cm": null,
+      "frecuencia_semanal": null,
+      "nivel_fitness": "principiante",
+      "fecha_registro": "2025-05-24"
+    }
+  ],
+  "Objetivos": [
+    {
+      "id": 1,
+      "nombre": "Objetivo 1",
+      "descripcion": "Descripcion 1",
+      "nivel_recomendado": "principiante"
+    }
+  ],
+  "UsuarioObjetivos": [
+    {
+      "id": 1,
+      "usuario_id": 1,
+      "objetivo_id": 1,
+      "activo": true,
+      "fecha_asignacion": "2025-05-24"
+    }
+  ],
+  "Ejercicios": [
+    {
+      "id": 1,
+      "nombre": "Ejercicio 1",
+      "descripcion": "Descripcion 1",
+      "grupo_muscular": "Grupo 1",
+      "nivel": "principiante",
+      "tipo": "fuerza",
+      "video_url": ""
+    }
+  ],
+  "PlanEjercicio": [
+    {
+      "id": 1,
+      "objetivo_id": 1,
+      "ejercicio_id": 1,
+      "dia_semana": 0,
+      "orden": 1,
+      "series_recomendadas": 3,
+      "repeticiones_recomendadas": 10,
+      "peso_recomendado": null
+    }
+  ]
+}
