@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
   FaBars, FaChartLine, FaDumbbell, FaAppleAlt,
-  FaStopwatch, FaHeart, FaCog,
+  FaStopwatch, FaCog,
   FaHome,
 } from 'react-icons/fa';
 import { getAuth, signOut } from 'firebase/auth';
@@ -14,12 +14,10 @@ export default function Sidebar() {
   const navigate = useNavigate();
 
   const menuItems = [
-    { label: 'Home', icon: <FaHome/>, to: '/home'},
     { label: 'Mi Progreso', icon: <FaChartLine />, to: '/progreso' },
     { label: 'Ejercicios', icon: <FaDumbbell />, to: '/ejercicios' },
     { label: 'Dieta', icon: <FaAppleAlt />, to: '/dieta' },
     { label: 'Timer', icon: <FaStopwatch />, to: '/timer' },
-    { label: 'Motivación Diaria', icon: <FaHeart />, to: '/motivacion' },
     { label: 'Configuración', icon: <FaCog />, to: '/configuracion' },
   ];
 
@@ -56,7 +54,7 @@ export default function Sidebar() {
             to={to}
             className={({ isActive }) =>
               `flex items-center space-x-4 px-3 py-2 rounded cursor-pointer transition ${
-                isActive ? 'bg-red-600' : 'hover:bg-gray-800'
+                isActive ? 'bg-red-600' : 'hover:bg-gray-700 transition'
               }`
             }
           >

@@ -17,7 +17,7 @@ export default function Login() {
     try {
       await authService.login(email, password);
       toast.success('Sesión iniciada correctamente');
-      navigate('/home')
+      navigate('/progreso')
     } catch (err) {
       console.log(err.code)
       switch(err.code) {
@@ -45,7 +45,7 @@ export default function Login() {
       <div className="w-full md:w-1/2 flex flex-col bg-white">
         {/* Encabezado arriba */}
         <div className="w-full text-center py-6">
-          <Link to={'/'}>
+          <Link to={'/progreso'}>
             <h1 className="text-5xl text-red-500 font-bold">Vitality</h1>
           </Link>
         </div>

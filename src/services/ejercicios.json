@@ -1,0 +1,48 @@
+{
+  "fuerza": {
+    "pecho": [
+      "Press de banca", "Press inclinado con barra", "Press inclinado con mancuernas",
+      "Fondos en paralelas", "Press declinado", "Aperturas con mancuernas", "Push-up"
+    ],
+    "espalda": [
+      "Remo con barra", "Jalón al pecho", "Pull-up", "Remo en máquina",
+      "Remo con mancuerna", "Peso muerto", "Remo invertido"
+    ],
+    "piernas": [
+      "Sentadillas", "Prensa de piernas", "Extensiones de piernas", "Curl femoral",
+      "Zancadas con mancuernas", "Peso muerto rumano", "Elevación de talones"
+    ],
+    "bíceps": [
+      "Curl con barra", "Curl con mancuernas", "Curl concentrado", "Curl martillo",
+      "Curl predicador", "Curl con polea baja", "Curl alterno"
+    ],
+    "tríceps": [
+      "Extensiones en polea", "Fondos de tríceps", "Press francés", "Patada de tríceps",
+      "Press cerrado", "Extensión con mancuerna", "Press con cuerda"
+    ],
+    "hombros": [
+      "Press militar", "Elevaciones laterales", "Elevaciones frontales", "Pájaros",
+      "Remo al cuello", "Press con mancuernas", "Press Arnold"
+    ],
+    "abdominales": [
+      "Crunch en el suelo", "Elevación de piernas", "Crunch en máquina", "Planchas",
+      "Toques de talón", "Bicicleta", "Ab rollout"
+    ]
+  },
+  "cardio": {
+    "general": [
+      "Caminata rápida", "Correr", "Bicicleta", "Natación", "Remo", "Elíptica",
+      "Jumping Jacks", "Subir escaleras", "Saltar la cuerda", "Boxeo",
+      "Spinning", "HIIT", "Zumba", "Baile aeróbico"
+    ]
+  },
+  "flexibilidad": {
+    "general": [
+      "Estiramiento de isquiotibiales", "Estiramiento de cuádriceps",
+      "Estiramiento de espalda baja", "Estiramiento de hombros", "Postura del niño",
+      "Gato-vaca", "Torsión espinal", "Estiramiento de cadera",
+      "Postura del perro boca abajo", "Estiramiento de cuello",
+      "Estiramiento de tríceps", "Flexión hacia adelante", "Postura de mariposa"
+    ]
+  }
+}

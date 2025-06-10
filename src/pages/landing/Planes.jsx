@@ -2,6 +2,12 @@ import { motion } from "framer-motion";
 
 const plans = [
   {
+    title: "Free",
+    price: "$0",
+    features: ["1 usuario",],
+    delay: 0.4,
+  },
+  {
     title: "Standard",
     price: "$8",
     features: ["1 usuario", "Soporte básico", "Acceso limitado"],
@@ -26,7 +32,7 @@ const Planes = () => {
     <section className="py-16 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold mb-10">Nuestros Planes</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {plans.map((plan, idx) => (
             <motion.div
               key={idx}

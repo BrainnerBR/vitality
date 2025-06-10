@@ -1,11 +1,16 @@
 import React from 'react';
+import Frase from '../../components/Frase';
+import CaloriasQuemadasChart from './ejercicios/CaloriasQuemadasChart';
 
-const Progreso = () => {
+const Progreso = ({ userId, peso_kg, usuario }) => {
+  console.log("userId recibido en Progreso:", userId);
+
   return (
     <div>
-      Progreso
+      <Frase />
+    <CaloriasQuemadasChart peso_kg={80} />
     </div>
   );
-}
+};
 
 export default Progreso;

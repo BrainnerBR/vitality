@@ -1,4 +1,5 @@
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -33,7 +34,9 @@ const Footer = () => {
             <li className="hover:text-red-500 cursor-pointer w-fit">Contáctanos</li>
             <li className="hover:text-red-500 cursor-pointer w-fit">Preguntas Frecuentes</li>
             <li className="hover:text-red-500 cursor-pointer w-fit">Blog de Vitality</li>
+            <Link to={'/legal'}>
             <li className="hover:text-red-500 cursor-pointer w-fit">Términos y Privacidad</li>
+            </Link>
           </ul>
         </div>
 
