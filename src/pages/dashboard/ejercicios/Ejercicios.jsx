@@ -5,6 +5,9 @@ import { push, ref } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import { realtimeDB } from "../../../services/firebaseConfig";
 
+import { FaPlusCircle, FaHistory, FaCalendarAlt } from "react-icons/fa";
+
+
 import ejerciciosData from "../../../services/ejercicios.json";
 import HistorialEjercicios from "./HistorialEjercicios";
 import EjerciciosSemana from "./EjerciciosSemana";
@@ -19,7 +22,6 @@ const Ejercicios = () => {
   const [sugerenciasEjercicio, setSugerenciasEjercicio] = useState([]);
   const [ejercicioSeleccionado, setEjercicioSeleccionado] = useState(null);
   const [musculo, setMusculo] = useState("");
-  const [dia, setDia] = useState("");
   const [tiposSugeridos, setTiposSugeridos] = useState([]);
   const tiposBase = ["cardio", "fuerza", "flexibilidad"];
 
@@ -31,27 +33,36 @@ const Ejercicios = () => {
     setTiposSugeridos(resultados);
   };
 
-  const buscarEjercicio = (event) => {
-    const query = event.query?.toLowerCase() || "";
-    let resultados = [];
+const buscarEjercicio = (event) => {
+  const query = event.query?.toLowerCase() || "";
+  let resultados = [];
 
-    if (tipo && ejerciciosData[tipo]) {
-      Object.values(ejerciciosData[tipo]).forEach((lista) => {
-        lista.forEach((nombre) => {
-          if (nombre.toLowerCase().includes(query)) {
-            resultados.push({ name_es: nombre });
-          }
-        });
-      });
-    }
+  if (tipo && ejerciciosData.length > 0) {
+    resultados = ejerciciosData
+      .filter(
+        (ej) =>
+          ej.tipo.toLowerCase() === tipo.toLowerCase() &&
+          ej.nombre.toLowerCase().includes(query)
+      )
+      .map((ej) => ({
+        name: ej.nombre,
+        musculo: ej.musculo,
+      }));
+  }
 
-    setSugerenciasEjercicio(resultados.slice(0, 10));
-  };
+  console.log("Sugerencias encontradas:", resultados);
+  setSugerenciasEjercicio(resultados.slice(0, 10));
+};
 
-  const handleSeleccionEjercicio = (e) => {
-    const ejercicio = e.value;
-    setEjercicioSeleccionado({ name_es: ejercicio.name_es });
-  };
+
+const handleSeleccionEjercicio = (e) => {
+  const ejercicio = e.value;
+  setEjercicioSeleccionado(ejercicio);
+  setMusculo(ejercicio.musculo);
+};
+
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,20 +70,33 @@ const Ejercicios = () => {
     const user = auth.currentUser;
     if (!user) return alert("Usuario no autenticado");
 
-    if (!ejercicioSeleccionado?.name_es) {
-      return toast.error("Por favor selecciona un ejercicio.");
-    }
+if (!ejercicioSeleccionado?.name) {
+  return toast.error("Por favor selecciona un ejercicio.");
+}
 
-    const rutina = {
-      tipo,
-      ejercicio: ejercicioSeleccionado.name_es,
-      fecha: new Date().toISOString(),
-      dia,
-      musculo,
-      ...(tipo === "fuerza" && { repeticiones, sets, peso }),
-      ...(tipo === "cardio" && { duracion }),
-      uid: user.uid,
-    };
+        const diasSemana = [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ];
+    const diaActual = diasSemana[new Date().getDay()];
+
+
+const rutina = {
+  tipo,
+  ejercicio: ejercicioSeleccionado.name,
+  fecha: new Date().toISOString(),
+  dia: diaActual,
+  musculo,
+  ...(tipo === "fuerza" && { repeticiones, sets, peso }),
+  ...(tipo === "cardio" && { duracion }),
+  uid: user.uid,
+};
+
 
     try {
       await push(ref(realtimeDB, "rutinas"), rutina);
@@ -84,7 +108,6 @@ const Ejercicios = () => {
       setSets("");
       setPeso("");
       setDuracion("");
-      setDia("");
       setMusculo("");
     } catch (error) {
       console.error("Error al guardar rutina:", error);
@@ -96,33 +119,37 @@ const Ejercicios = () => {
     <div>
       {/* Navegación entre vistas */}
       <nav className="text-white px-4 py-2 mb-4">
-        <div className="flex gap-4 justify-left">
-          <button
-            onClick={() => setVista("agregar")}
-            className={`px-4 py-2 rounded ${
-              vista === "agregar" ? "bg-red-500" : "bg-gray-700"
-            } hover:bg-red-500 transition`}
-          >
-            Agregar Rutina
-          </button>
-          <button
-            onClick={() => setVista("historial")}
-            className={`px-4 py-2 rounded ${
-              vista === "historial" ? "bg-red-500" : "bg-gray-700"
-            } hover:bg-red-500 transition`}
-          >
-            Historial de Ejercicios
-          </button>
-          <button
-            onClick={() => setVista("plan")}
-            className={`px-4 py-2 rounded ${
-              vista === "plan" ? "bg-red-500" : "bg-gray-700"
-            } hover:bg-red-500 transition`}
-          >
-            Semana
-          </button>
-        </div>
-      </nav>
+  <div className="flex gap-4 justify-left">
+    <button
+      onClick={() => setVista("agregar")}
+      className={`flex items-center gap-2 px-4 py-2 rounded ${
+        vista === "agregar" ? "bg-red-500" : "bg-gray-700"
+      } hover:bg-red-500 transition`}
+    >
+      <FaPlusCircle />
+      Agregar Rutina
+    </button>
+    <button
+      onClick={() => setVista("historial")}
+      className={`flex items-center gap-2 px-4 py-2 rounded ${
+        vista === "historial" ? "bg-red-500" : "bg-gray-700"
+      } hover:bg-red-500 transition`}
+    >
+      <FaHistory />
+      Historial de Ejercicios
+    </button>
+    <button
+      onClick={() => setVista("plan")}
+      className={`flex items-center gap-2 px-4 py-2 rounded ${
+        vista === "plan" ? "bg-red-500" : "bg-gray-700"
+      } hover:bg-red-500 transition`}
+    >
+      <FaCalendarAlt />
+      Mi Semana
+    </button>
+  </div>
+</nav>
+
 
       {/* Vista Agregar Rutina */}
       {vista === "agregar" && (
@@ -154,18 +181,31 @@ const Ejercicios = () => {
               <label className="block text-gray-700 font-medium mb-1">
                 Ejercicio
               </label>
-              <AutoComplete
-                value={ejercicioSeleccionado}
-                suggestions={sugerenciasEjercicio}
-                completeMethod={buscarEjercicio}
-                field="name_es"
-                onChange={handleSeleccionEjercicio}
-                placeholder="Buscar ejercicio"
-                className="w-full"
-                inputClassName="w-full p-2 border border-gray-300 rounded"
-                dropdown
-                itemTemplate={(item) => <div>{item.name_es}</div>}
-              />
+                  <AutoComplete
+                    value={ejercicioSeleccionado}
+                    suggestions={sugerenciasEjercicio}
+                    completeMethod={buscarEjercicio}
+                    field="name"
+                    onChange={handleSeleccionEjercicio}
+                    placeholder="Buscar ejercicio"
+                    className="w-full"
+                    inputClassName="w-full p-2 border border-gray-300 rounded"
+                    dropdown
+                    itemTemplate={(item) => (
+                      <div>
+                        {item.name} <span className="text-gray-400 text-sm">({item.musculo})</span>
+                      </div>
+                    )}
+                  />
+
+
+
+              {musculo && (
+              <p className="text-sm text-gray-600">
+                Músculo detectado: <strong>{musculo}</strong>
+              </p>
+            )}
+
             </div>
 
             {tipo === "fuerza" && (
@@ -219,37 +259,6 @@ const Ejercicios = () => {
                 />
               </div>
             )}
-
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">Día</label>
-              <select
-                value={dia}
-                onChange={(e) => setDia(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded"
-              >
-                <option value="">Seleccionar día</option>
-                <option value="lunes">Lunes</option>
-                <option value="martes">Martes</option>
-                <option value="miércoles">Miércoles</option>
-                <option value="jueves">Jueves</option>
-                <option value="viernes">Viernes</option>
-                <option value="sábado">Sábado</option>
-                <option value="domingo">Domingo</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">
-                Músculo
-              </label>
-              <input
-                type="text"
-                value={musculo}
-                onChange={(e) => setMusculo(e.target.value)}
-                placeholder="Ej: Pecho"
-                className="w-full p-2 border border-gray-300 rounded"
-              />
-            </div>
 
             <button
               type="submit"

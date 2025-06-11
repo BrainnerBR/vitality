@@ -1,48 +1,86 @@
-{
-  "fuerza": {
-    "pecho": [
-      "Press de banca", "Press inclinado con barra", "Press inclinado con mancuernas",
-      "Fondos en paralelas", "Press declinado", "Aperturas con mancuernas", "Push-up"
-    ],
-    "espalda": [
-      "Remo con barra", "Jalón al pecho", "Pull-up", "Remo en máquina",
-      "Remo con mancuerna", "Peso muerto", "Remo invertido"
-    ],
-    "piernas": [
-      "Sentadillas", "Prensa de piernas", "Extensiones de piernas", "Curl femoral",
-      "Zancadas con mancuernas", "Peso muerto rumano", "Elevación de talones"
-    ],
-    "bíceps": [
-      "Curl con barra", "Curl con mancuernas", "Curl concentrado", "Curl martillo",
-      "Curl predicador", "Curl con polea baja", "Curl alterno"
-    ],
-    "tríceps": [
-      "Extensiones en polea", "Fondos de tríceps", "Press francés", "Patada de tríceps",
-      "Press cerrado", "Extensión con mancuerna", "Press con cuerda"
-    ],
-    "hombros": [
-      "Press militar", "Elevaciones laterales", "Elevaciones frontales", "Pájaros",
-      "Remo al cuello", "Press con mancuernas", "Press Arnold"
-    ],
-    "abdominales": [
-      "Crunch en el suelo", "Elevación de piernas", "Crunch en máquina", "Planchas",
-      "Toques de talón", "Bicicleta", "Ab rollout"
-    ]
-  },
-  "cardio": {
-    "general": [
-      "Caminata rápida", "Correr", "Bicicleta", "Natación", "Remo", "Elíptica",
-      "Jumping Jacks", "Subir escaleras", "Saltar la cuerda", "Boxeo",
-      "Spinning", "HIIT", "Zumba", "Baile aeróbico"
-    ]
-  },
-  "flexibilidad": {
-    "general": [
-      "Estiramiento de isquiotibiales", "Estiramiento de cuádriceps",
-      "Estiramiento de espalda baja", "Estiramiento de hombros", "Postura del niño",
-      "Gato-vaca", "Torsión espinal", "Estiramiento de cadera",
-      "Postura del perro boca abajo", "Estiramiento de cuello",
-      "Estiramiento de tríceps", "Flexión hacia adelante", "Postura de mariposa"
-    ]
-  }
-}
+[
+  { "nombre": "Press de banca", "musculo": "pecho", "tipo": "fuerza" },
+  { "nombre": "Press inclinado con barra", "musculo": "pecho", "tipo": "fuerza" },
+  { "nombre": "Press inclinado con mancuernas", "musculo": "pecho", "tipo": "fuerza" },
+  { "nombre": "Fondos en paralelas", "musculo": "pecho", "tipo": "fuerza" },
+  { "nombre": "Press declinado", "musculo": "pecho", "tipo": "fuerza" },
+  { "nombre": "Aperturas con mancuernas", "musculo": "pecho", "tipo": "fuerza" },
+  { "nombre": "Push-up", "musculo": "pecho", "tipo": "fuerza" },
+
+  { "nombre": "Remo con barra", "musculo": "espalda", "tipo": "fuerza" },
+  { "nombre": "Jalón al pecho", "musculo": "espalda", "tipo": "fuerza" },
+  { "nombre": "Pull-up", "musculo": "espalda", "tipo": "fuerza" },
+  { "nombre": "Remo en máquina", "musculo": "espalda", "tipo": "fuerza" },
+  { "nombre": "Remo con mancuerna", "musculo": "espalda", "tipo": "fuerza" },
+  { "nombre": "Peso muerto", "musculo": "espalda", "tipo": "fuerza" },
+  { "nombre": "Remo invertido", "musculo": "espalda", "tipo": "fuerza" },
+
+  { "nombre": "Sentadillas", "musculo": "piernas", "tipo": "fuerza" },
+  { "nombre": "Prensa de piernas", "musculo": "piernas", "tipo": "fuerza" },
+  { "nombre": "Extensiones de piernas", "musculo": "piernas", "tipo": "fuerza" },
+  { "nombre": "Curl femoral", "musculo": "piernas", "tipo": "fuerza" },
+  { "nombre": "Zancadas con mancuernas", "musculo": "piernas", "tipo": "fuerza" },
+  { "nombre": "Peso muerto rumano", "musculo": "piernas", "tipo": "fuerza" },
+  { "nombre": "Elevación de talones", "musculo": "piernas", "tipo": "fuerza" },
+
+  { "nombre": "Curl con barra", "musculo": "bíceps", "tipo": "fuerza" },
+  { "nombre": "Curl con mancuernas", "musculo": "bíceps", "tipo": "fuerza" },
+  { "nombre": "Curl concentrado", "musculo": "bíceps", "tipo": "fuerza" },
+  { "nombre": "Curl martillo", "musculo": "bíceps", "tipo": "fuerza" },
+  { "nombre": "Curl predicador", "musculo": "bíceps", "tipo": "fuerza" },
+  { "nombre": "Curl con polea baja", "musculo": "bíceps", "tipo": "fuerza" },
+  { "nombre": "Curl alterno", "musculo": "bíceps", "tipo": "fuerza" },
+
+  { "nombre": "Extensiones en polea", "musculo": "tríceps", "tipo": "fuerza" },
+  { "nombre": "Fondos de tríceps", "musculo": "tríceps", "tipo": "fuerza" },
+  { "nombre": "Press francés", "musculo": "tríceps", "tipo": "fuerza" },
+  { "nombre": "Patada de tríceps", "musculo": "tríceps", "tipo": "fuerza" },
+  { "nombre": "Press cerrado", "musculo": "tríceps", "tipo": "fuerza" },
+  { "nombre": "Extensión con mancuerna", "musculo": "tríceps", "tipo": "fuerza" },
+  { "nombre": "Press con cuerda", "musculo": "tríceps", "tipo": "fuerza" },
+
+  { "nombre": "Press militar", "musculo": "hombros", "tipo": "fuerza" },
+  { "nombre": "Elevaciones laterales", "musculo": "hombros", "tipo": "fuerza" },
+  { "nombre": "Elevaciones frontales", "musculo": "hombros", "tipo": "fuerza" },
+  { "nombre": "Pájaros", "musculo": "hombros", "tipo": "fuerza" },
+  { "nombre": "Remo al cuello", "musculo": "hombros", "tipo": "fuerza" },
+  { "nombre": "Press con mancuernas", "musculo": "hombros", "tipo": "fuerza" },
+  { "nombre": "Press Arnold", "musculo": "hombros", "tipo": "fuerza" },
+
+  { "nombre": "Crunch en el suelo", "musculo": "abdominales", "tipo": "fuerza" },
+  { "nombre": "Elevación de piernas", "musculo": "abdominales", "tipo": "fuerza" },
+  { "nombre": "Crunch en máquina", "musculo": "abdominales", "tipo": "fuerza" },
+  { "nombre": "Planchas", "musculo": "abdominales", "tipo": "fuerza" },
+  { "nombre": "Toques de talón", "musculo": "abdominales", "tipo": "fuerza" },
+  { "nombre": "Bicicleta", "musculo": "abdominales", "tipo": "fuerza" },
+  { "nombre": "Ab rollout", "musculo": "abdominales", "tipo": "fuerza" },
+
+  { "nombre": "Caminata rápida", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Correr", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Bicicleta", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Natación", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Remo", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Elíptica", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Jumping Jacks", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Subir escaleras", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Saltar la cuerda", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Boxeo", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Spinning", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "HIIT", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Zumba", "musculo": "general", "tipo": "cardio" },
+  { "nombre": "Baile aeróbico", "musculo": "general", "tipo": "cardio" },
+
+  { "nombre": "Estiramiento de isquiotibiales", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Estiramiento de cuádriceps", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Estiramiento de espalda baja", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Estiramiento de hombros", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Postura del niño", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Gato-vaca", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Torsión espinal", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Estiramiento de cadera", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Postura del perro boca abajo", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Estiramiento de cuello", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Estiramiento de tríceps", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Flexión hacia adelante", "musculo": "general", "tipo": "flexibilidad" },
+  { "nombre": "Postura de mariposa", "musculo": "general", "tipo": "flexibilidad" }
+]

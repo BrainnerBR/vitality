@@ -1,6 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
+import { FaHeartbeat, FaDumbbell, FaPrayingHands } from "react-icons/fa";
+
+const diasSemana = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"];
+
+const iconoPorTipo = {
+  fuerza: <FaDumbbell className="inline-block mr-1 text-red-500" />,
+  cardio: <FaHeartbeat className="inline-block mr-1 text-green-500" />,
+  flexibilidad: <FaPrayingHands className="inline-block mr-1 text-indigo-500" />,
+};
+
+
+const colorMusculo = (musculo) => {
+  const colores = {
+    pecho: "bg-red-200 text-red-800",
+    espalda: "bg-blue-200 text-blue-800",
+    piernas: "bg-green-200 text-green-800",
+    bíceps: "bg-purple-200 text-purple-800",
+    tríceps: "bg-pink-200 text-pink-800",
+    hombros: "bg-yellow-200 text-yellow-800",
+    abdominales: "bg-orange-200 text-orange-800",
+    general: "bg-gray-200 text-gray-700",
+  };
+  return colores[musculo?.toLowerCase()] || "bg-gray-100 text-gray-500";
+};
 
 const EjerciciosSemana = () => {
   const [rutinas, setRutinas] = useState([]);
@@ -8,7 +32,6 @@ const EjerciciosSemana = () => {
   useEffect(() => {
     const auth = getAuth();
     const user = auth.currentUser;
-
     if (!user) return;
 
     const db = getDatabase();
@@ -24,80 +47,74 @@ const EjerciciosSemana = () => {
         }
       }
 
-      const ordenadas = lista.sort(
-        (a, b) => new Date(b.fecha) - new Date(a.fecha)
-      );
-
-      setRutinas(ordenadas);
+      setRutinas(lista);
     });
   }, []);
 
-  const agruparRutinasPorDia = (rutinas) => {
-    const diasSemana = {
-      lunes: [],
-      martes: [],
-      miércoles: [],
-      jueves: [],
-      viernes: [],
-      sábado: [],
-    };
+  const agruparRutinas = () => {
+    const agrupado = {};
+    diasSemana.forEach(dia => agrupado[dia] = []);
 
-    rutinas.forEach((rutina) => {
-      const dia = rutina.dia?.toLowerCase();
-      if (dia && diasSemana[dia]) {
-        diasSemana[dia].push(rutina);
-      }
+    rutinas.forEach(rut => {
+      const dia = rut.dia?.toLowerCase();
+      if (agrupado[dia]) agrupado[dia].push(rut);
     });
 
-    return diasSemana;
+    return agrupado;
   };
 
-  const getColorClase = (musculo) => {
-    switch (musculo.toLowerCase()) {
-      case "pecho": return "bg-red-100 border-red-400";
-      case "espalda": return "bg-blue-100 border-blue-400";
-      case "piernas": return "bg-green-100 border-green-400";
-      case "brazos": return "bg-yellow-100 border-yellow-400";
-      case "abdomen": return "bg-purple-100 border-purple-400";
-      default: return "bg-gray-100 border-gray-300";
-    }
-  };
+  const rutinasPorDia = agruparRutinas();
 
   return (
-    <div>
-      <div className="p-4">
-        <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800">Plan semanal</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 gap-4">
-          {Object.entries(agruparRutinasPorDia(rutinas)).map(([dia, ejercicios]) => {
-            const musculo = ejercicios[0]?.musculo || "Descanso";
-            return (
-              <div
-                key={dia}
-                className={`rounded-lg shadow p-3 transition duration-300 ${getColorClase(musculo)} border`}
-              >
-                <div className="font-semibold text-center capitalize mb-2">{dia}</div>
-                <div className="font-bold text-center mb-2">{musculo}</div>
-                <div className="space-y-2">
-                  {ejercicios.map((ej, i) => (
-                    <div key={i} className="bg-white rounded p-2 shadow text-sm">
-                      <div className="font-medium text-gray-700">{ej.ejercicio}</div>
-                      <div className="text-gray-500">
-                        {ej.tipo === "fuerza"
-                          ? `${ej.sets}x${ej.repeticiones} (${ej.peso}kg)`
-                          : ej.tipo === "cardio"
-                          ? `${ej.duracion} min`
-                          : "Flexibilidad"}
-                      </div>
-                    </div>
+    <div className="p-4">
+      <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Resumen semanal de entrenamiento</h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+        {diasSemana.map((dia) => {
+          const ejercicios = rutinasPorDia[dia];
+          const musculos = [...new Set(ejercicios.map(ej => ej.musculo))];
+
+          return (
+            <div key={dia} className="bg-white border rounded-xl p-4 shadow-md hover:shadow-lg transition">
+              <div className="mb-3">
+                <h3 className="text-xl font-semibold capitalize text-red-600">{dia}</h3>
+              </div>
+
+              {musculos.length > 0 ? (
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {musculos.map((mus, i) => (
+                    <span key={i} className={`text-xs px-2 py-1 rounded-full font-medium ${colorMusculo(mus)}`}>
+                      {mus}
+                    </span>
                   ))}
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              ) : (
+                <p className="text-gray-400 italic text-sm">Descanso</p>
+              )}
+
+              <ul className="space-y-2">
+                {ejercicios.map((ej, i) => (
+                  <li key={i} className="bg-gray-50 p-2 rounded-md border text-sm">
+                    <div className="text-gray-800 font-medium flex items-center">
+                      {iconoPorTipo[ej.tipo?.toLowerCase()] || null}
+                      {ej.ejercicio}
+                    </div>
+                    <div className="text-gray-500">
+                      {ej.tipo === "fuerza"
+                        ? `${ej.sets}x${ej.repeticiones} (${ej.peso}kg)`
+                        : ej.tipo === "cardio"
+                        ? `${ej.duracion} min`
+                        : "Flexibilidad"}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
-}
+};
 
 export default EjerciciosSemana;
