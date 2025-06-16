@@ -12,11 +12,11 @@ import PerfilPaso2 from "./pages/auth/PerfilPaso2"
 import Login from "./pages/auth/Login";
 import ProtectedRoute from "./pages/auth/ProtectedRoute";
 
-import Progreso from "./pages/dashboard/Progreso";
+import Progreso from "./pages/dashboard/progreso/Progreso";
 import Ejercicios from "./pages/dashboard/ejercicios/Ejercicios";
-import Dieta from "./pages/dashboard/Dieta";
+import Dieta from "./pages/dashboard/dieta/AgregarComida";
 import Timer from "./pages/dashboard/Timer";
-import Configuracion from "./pages/dashboard/Configuracion";
+import Perfil from "./pages/dashboard/Perfil";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Servicios from "./pages/servicios/Servicios";
 import TestimoniosPage from './pages/testimonios/TestimoniosPage'
@@ -51,7 +51,7 @@ function App() {
             <Route path="/ejercicios" element={<Ejercicios />} />
             <Route path="/dieta" element={<Dieta />} />
             <Route path="/timer" element={<Timer />} />
-            <Route path="/configuracion" element={<Configuracion />} />
+            <Route path="/perfil" element={<Perfil />} />
           </Route>
         </Routes>
       </Router>

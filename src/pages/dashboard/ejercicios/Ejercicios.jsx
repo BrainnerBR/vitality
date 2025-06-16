@@ -130,15 +130,6 @@ const rutina = {
       Agregar Rutina
     </button>
     <button
-      onClick={() => setVista("historial")}
-      className={`flex items-center gap-2 px-4 py-2 rounded ${
-        vista === "historial" ? "bg-red-500" : "bg-gray-700"
-      } hover:bg-red-500 transition`}
-    >
-      <FaHistory />
-      Historial de Ejercicios
-    </button>
-    <button
       onClick={() => setVista("plan")}
       className={`flex items-center gap-2 px-4 py-2 rounded ${
         vista === "plan" ? "bg-red-500" : "bg-gray-700"
@@ -146,6 +137,15 @@ const rutina = {
     >
       <FaCalendarAlt />
       Mi Semana
+    </button>
+    <button
+      onClick={() => setVista("historial")}
+      className={`flex items-center gap-2 px-4 py-2 rounded ${
+        vista === "historial" ? "bg-red-500" : "bg-gray-700"
+      } hover:bg-red-500 transition`}
+    >
+      <FaHistory />
+      Historial de Ejercicios
     </button>
   </div>
 </nav>

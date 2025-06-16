@@ -22,7 +22,7 @@ useEffect(() => {
 
 
 return (
-    <div className="w-full h-full max-w-md bg-white shadow-xl rounded-2xl p-6 m-4 text-left">
+    <div className="h-full max-w-full bg-white shadow-xl rounded-2xl p-6 m-4 text-left">
       <h2 className="text-2xl font-bold text-red-600 mb-1"></h2>
       <p className="text-gray-500 text-sm mb-4">{fecha}</p>
       <p className='text-lg text-gray-700 italic'>{fraseDelDia}</p>

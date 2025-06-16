@@ -1,0 +1,78 @@
+[
+  {
+    "id": 1,
+    "nombre": "Hidratación constante",
+    "descripcion": "Beber al menos 2000 ml de agua durante 5 días esta semana.",
+    "tipo": "agua",
+    "meta": {
+      "dias": 5,
+      "mililitros_minimos": 2000
+    },
+    "puntos": 10
+  },
+  {
+    "id": 2,
+    "nombre": "Racha de comidas saludables",
+    "descripcion": "Registrar al menos 3 comidas por día durante 4 días.",
+    "tipo": "comida",
+    "meta": {
+      "dias": 4,
+      "comidas_por_dia": 3
+    },
+    "puntos": 15
+  },
+  {
+    "id": 3,
+    "nombre": "Semana activa",
+    "descripcion": "Realizar ejercicio al menos 4 días en la semana.",
+    "tipo": "ejercicio",
+    "meta": {
+      "dias": 4
+    },
+    "puntos": 20
+  },
+  {
+    "id": 4,
+    "nombre": "Meta calórica alcanzada",
+    "descripcion": "Cumplir con la meta diaria de calorías durante 3 días.",
+    "tipo": "calorias",
+    "meta": {
+      "dias": 3
+    },
+    "puntos": 15
+  },
+  {
+    "id": 5,
+    "nombre": "Constancia total",
+    "descripcion": "Entrar a la app todos los días de la semana.",
+    "tipo": "consistencia",
+    "meta": {
+      "dias": 7
+    },
+    "puntos": 25
+  },
+  {
+    "id": 6,
+    "nombre": "Ejercicio doble",
+    "descripcion": "Hacer dos rutinas de ejercicio en el mismo día, al menos 2 veces.",
+    "tipo": "ejercicio",
+    "meta": {
+      "dias": 2,
+      "rutinas_por_dia": 2
+    },
+    "puntos": 30
+  },
+  {
+    "id": 7,
+    "nombre": "Semana balanceada",
+    "descripcion": "Registrar agua, comida y ejercicio al menos 3 días.",
+    "tipo": "mixto",
+    "meta": {
+      "dias": 3,
+      "agua": true,
+      "comida": true,
+      "ejercicio": true
+    },
+    "puntos": 40
+  }
+]

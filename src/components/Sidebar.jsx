@@ -4,6 +4,7 @@ import {
   FaBars, FaChartLine, FaDumbbell, FaAppleAlt,
   FaStopwatch, FaCog,
   FaHome,
+  FaUser,
 } from 'react-icons/fa';
 import { getAuth, signOut } from 'firebase/auth';
 import toast from 'react-hot-toast';
@@ -18,7 +19,7 @@ export default function Sidebar() {
     { label: 'Ejercicios', icon: <FaDumbbell />, to: '/ejercicios' },
     { label: 'Dieta', icon: <FaAppleAlt />, to: '/dieta' },
     { label: 'Timer', icon: <FaStopwatch />, to: '/timer' },
-    { label: 'Configuración', icon: <FaCog />, to: '/configuracion' },
+    { label: 'Perfil', icon: <FaUser />, to: '/perfil' },
   ];
 
   const handleLogout = () => {

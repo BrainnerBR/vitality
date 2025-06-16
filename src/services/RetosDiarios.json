@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "nombre": "Hidrátate bien",
+    "descripcion": "Toma al menos 8 vasos de agua hoy.",
+    "tipo": "agua",
+    "meta": 8,
+    "puntos": 5
+  },
+  {
+    "id": 2,
+    "nombre": "Desayuno saludable",
+    "descripcion": "Registra un desayuno con frutas o proteína.",
+    "tipo": "comida",
+    "meta": 1,
+    "puntos": 5
+  },
+  {
+    "id": 3,
+    "nombre": "Actívate",
+    "descripcion": "Realiza al menos 20 minutos de ejercicio hoy.",
+    "tipo": "ejercicio",
+    "meta": 1,
+    "puntos": 10
+  },
+  {
+    "id": 4,
+    "nombre": "Sin azúcar",
+    "descripcion": "Evita bebidas azucaradas durante el día.",
+    "tipo": "habito",
+    "meta": 1,
+    "puntos": 10
+  },
+  {
+    "id": 5,
+    "nombre": "Cena ligera",
+    "descripcion": "Registra una cena baja en calorías.",
+    "tipo": "comida",
+    "meta": 1,
+    "puntos": 5
+  },
+  {
+    "id": 7,
+    "nombre": "Fruta del día",
+    "descripcion": "Come al menos una fruta hoy.",
+    "tipo": "comida",
+    "meta": 1,
+    "puntos": 3
+  },
+  {
+    "id": 8,
+    "nombre": "Reto mental",
+    "descripcion": "Realiza 5 minutos de respiración consciente.",
+    "tipo": "habito",
+    "meta": 1,
+    "puntos": 8
+  },
+  {
+    "id": 9,
+    "nombre": "Paso a paso",
+    "descripcion": "Camina al menos 3,000 pasos hoy.",
+    "tipo": "ejercicio",
+    "meta": 3000,
+    "puntos": 10
+  },
+  {
+    "id": 10,
+    "nombre": "Balanceado",
+    "descripcion": "Registra al menos 3 comidas hoy.",
+    "tipo": "comida",
+    "meta": 3,
+    "puntos": 6
+  }
+]

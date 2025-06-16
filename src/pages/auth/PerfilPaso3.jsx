@@ -51,7 +51,7 @@ useEffect(() => {
       });
 
       toast.success("¡Registro completo!");
-      navigate("/dashboard"); // o cualquier ruta final
+      navigate("/progreso"); // o cualquier ruta final
     } catch (error) {
       console.error("Error al guardar objetivos:", error);
       toast.error("Error al guardar tus objetivos");

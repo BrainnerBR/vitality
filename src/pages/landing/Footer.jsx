@@ -32,8 +32,6 @@ const Footer = () => {
           <ul className="text-sm space-y-2">
             <li className="hover:text-red-500 cursor-pointer w-fit">Nosotros</li>
             <li className="hover:text-red-500 cursor-pointer w-fit">Contáctanos</li>
-            <li className="hover:text-red-500 cursor-pointer w-fit">Preguntas Frecuentes</li>
-            <li className="hover:text-red-500 cursor-pointer w-fit">Blog de Vitality</li>
             <Link to={'/legal'}>
             <li className="hover:text-red-500 cursor-pointer w-fit">Términos y Privacidad</li>
             </Link>

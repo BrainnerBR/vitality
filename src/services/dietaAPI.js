@@ -24,6 +24,7 @@ export const buscarComida = async (query) => {
   }
   
 };
+// En dietaAPI.js
 export const buscarSugerencias = async (query) => {
   try {
     const response = await fetch(`https://trackapi.nutritionix.com/v2/search/instant?query=${query}`, {
@@ -34,9 +35,17 @@ export const buscarSugerencias = async (query) => {
     });
 
     const data = await response.json();
-    return data.common.map(item => item.food_name);
+    // Devolvemos objetos, no solo strings
+    return data.common.map(item => ({
+      food_name: item.food_name
+    }));
   } catch (error) {
     console.error("Error al buscar sugerencias:", error);
     return [];
   }
 };
+
+
+
+
+
